@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    android:gravity="center"
+    android:padding="30dp"
+    tools:context="br.com.victor.provapratica.activity.LoginActivity">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_card"
+        android:padding="10dp">
+
+        <RelativeLayout
+            android:id="@+id/rlTopo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/txtTitleBold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:text="@string/title_login"
+                android:textColor="@color/colorPrimary" />
+
+        </RelativeLayout>
+
+        <EditText
+            android:id="@+id/edLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rlTopo"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shape_edittext_login"
+            android:drawableLeft="@mipmap/ic_usuario"
+            android:hint="@string/login_email"
+            android:maxLines="1"
+            android:padding="5dip" />
+
+        <EditText
+            android:id="@+id/edSenha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edLogin"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shape_edittext_login"
+            android:drawableLeft="@mipmap/ic_senha"
+            android:hint="@string/login_senha"
+            android:maxLines="1"
+            android:padding="5dip"
+            android:password="true"
+            tools:ignore="Deprecated" />
+
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edSenha"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shape_button_principal"
+            android:padding="15dp"
+            android:text="ENTRAR"
+            android:textColor="@color/background"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/link_signup"
+            style="@style/txtTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnLogin"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:text="@string/signup" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

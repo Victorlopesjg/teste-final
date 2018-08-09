@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">ProvaPratica</string>
+    <string name="title_login">INSIRA SEUS DADOS</string>
+    <string name="signup">Ainda não tem conta? Crie uma!</string>
+    <string name="login_email">insira seu e-mail</string>
+    <string name="login_senha">insira sua senha</string>
+    <string name="cadastrar_dados">INFORME SEUS DADOS</string>
+    <string name="nome_cadastro">DIGITE SEU NOME:</string>
+    <string name="email_cadastro">DIGITE SEU E-MAIL:</string>
+    <string name="senha_cadastro">DIGITE SUA SENHA</string>
+    <string name="btn_enviar">ENVIAR</string>
+</resources>
