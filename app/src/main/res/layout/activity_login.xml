@@ -32,7 +32,7 @@
         </RelativeLayout>
 
         <EditText
-            android:id="@+id/edLogin"
+            android:id="@+id/edEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/rlTopo"
@@ -40,14 +40,15 @@
             android:background="@drawable/shape_edittext_login"
             android:drawableLeft="@mipmap/ic_usuario"
             android:hint="@string/login_email"
+            android:inputType="textEmailAddress"
             android:maxLines="1"
             android:padding="5dip" />
 
-        <EditText
+        <com.subhrajyoti.passwordview.PasswordView
             android:id="@+id/edSenha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/edLogin"
+            android:layout_below="@+id/edEmail"
             android:layout_marginTop="10dp"
             android:background="@drawable/shape_edittext_login"
             android:drawableLeft="@mipmap/ic_senha"

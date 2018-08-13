@@ -19,11 +19,21 @@ import okhttp3.Response;
 public class ServicoApp {
 
     private static ObjectMapper objectMapper = null;
+    public String token;
+    private static ServicoApp servicoApp;
 
     // URL base dos serviços.
     private final static String URL_BASE = "https://dev.people.com.ai/mobile/api/v2/";
     // Content type padrão para o uso dos serviços
     private static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+
+    public static ServicoApp getInstance() {
+        if (servicoApp == null) {
+            servicoApp = new ServicoApp();
+        }
+
+        return servicoApp;
+    }
 
     // Esse método serve para o registro do usuário no servidor
     public User register(String nome, String email, String password) throws Exception {
@@ -34,7 +44,7 @@ public class ServicoApp {
         OkHttpClient client = new OkHttpClient();
         RequestBody body = RequestBody.create(JSON, json);
         Request request = new Request.Builder()
-                .url(URL_BASE)
+                .url(URL_BASE + "register")
                 .post(body)
                 .build();
 
@@ -47,7 +57,7 @@ public class ServicoApp {
         }
     }
 
-    public String login(String email, String password) throws Exception {
+    public boolean login(String email, String password) throws Exception {
 
         User user = new User(email, password);
         String json = getObjectMapperInstance().writeValueAsString(user);
@@ -55,15 +65,16 @@ public class ServicoApp {
         OkHttpClient client = new OkHttpClient();
         RequestBody body = RequestBody.create(JSON, json);
         Request request = new Request.Builder()
-                .url(URL_BASE)
+                .url(URL_BASE + "login")
                 .post(body)
                 .build();
 
         Response response = client.newCall(request).execute();
 
         if (response.isSuccessful()) {
-            JsonNode token = getObjectMapperInstance().readValue(response.body().string(), JsonNode.class);
-            return token.get("token").textValue();
+            JsonNode jsonNode = getObjectMapperInstance().readValue(response.body().string(), JsonNode.class);
+            token = jsonNode.get("token").textValue();
+            return true;
         } else {
             throw new Exception(tratarErro(response.code()));
         }

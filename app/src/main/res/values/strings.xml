@@ -9,4 +9,12 @@
     <string name="email_cadastro">DIGITE SEU E-MAIL:</string>
     <string name="senha_cadastro">DIGITE SUA SENHA</string>
     <string name="btn_enviar">ENVIAR</string>
+
+    <!-- Mensagens de erro-->
+    <string name="campos_nao_preenchidos">Por favor preencha todos os campos.</string>
+
+    <!-- Key onSaveInstanceState  -->
+    <string name="key_save_email">key_save_email</string>
+    <string name="key_save_senha">key_save_senha</string>
+    <string name="key_save_nome">key_save_nome</string>
 </resources>
