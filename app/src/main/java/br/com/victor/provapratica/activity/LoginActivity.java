@@ -81,7 +81,7 @@ public class LoginActivity extends AppCompatActivity {
                 LoginAsyncTask asyncTask = new LoginAsyncTask();
                 asyncTask.execute(email, senha);
             } else {
-                Toast.makeText(LoginActivity.this, getString(R.string.campos_nao_preenchidos), Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, getString(R.string.erro_campos_nao_preenchidos), Toast.LENGTH_SHORT).show();
             }
         }
     };

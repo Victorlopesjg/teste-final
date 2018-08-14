@@ -74,7 +74,7 @@ public class SignUpActivity extends AppCompatActivity {
             if (camposPreenchidos()) {
 
             } else {
-                Toast.makeText(SignUpActivity.this, getString(R.string.campos_nao_preenchidos), Toast.LENGTH_SHORT).show();
+                Toast.makeText(SignUpActivity.this, getString(R.string.erro_campos_nao_preenchidos), Toast.LENGTH_SHORT).show();
             }
         }
     };

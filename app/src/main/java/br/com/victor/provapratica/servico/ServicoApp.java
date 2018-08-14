@@ -1,8 +1,15 @@
 package br.com.victor.provapratica.servico;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Log;
+
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 import br.com.victor.provapratica.model.User;
 import okhttp3.MediaType;
@@ -75,6 +82,28 @@ public class ServicoApp {
             JsonNode jsonNode = getObjectMapperInstance().readValue(response.body().string(), JsonNode.class);
             token = jsonNode.get("token").textValue();
             return true;
+        } else {
+            throw new Exception(tratarErro(response.code()));
+        }
+    }
+
+    public Bitmap logo(String site) throws Exception {
+        String path = "logo/" + site;
+
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url(URL_BASE + path)
+                .addHeader("authorization", token)
+                .get()
+                .build();
+
+        Response response = client.newCall(request).execute();
+
+        if (response.isSuccessful()) {
+            InputStream imageStream = response.body().byteStream();
+            Bitmap bmp = BitmapFactory.decodeStream(imageStream);
+
+            return bmp;
         } else {
             throw new Exception(tratarErro(response.code()));
         }
